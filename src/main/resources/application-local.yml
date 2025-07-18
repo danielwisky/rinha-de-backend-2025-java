@@ -1,0 +1,35 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/rinhadebackend
+  kafka:
+    topics:
+      payment-process: RINHADEBACKEND.PAYMENTS.PROCESS
+    bootstrap-servers: localhost:9092
+    listener:
+      concurrency: 10
+    consumer:
+      group-id: rinhadebackend-consumer
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      auto-offset-reset: earliest
+    producer:
+      retries: 10
+      bootstrap-servers: ${spring.kafka.bootstrap-servers}
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+            loggerLevel: basic
+
+external-api:
+  payment-processor:
+    url: http://payment-processor-default:8080
+  payment-processor-fallback:
+    url: http://payment-processor-fallback:8080
