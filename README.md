@@ -145,15 +145,6 @@ cd rinha-de-backend-2025-java
 docker-compose up -d
 ```
 
-### 3. Testar Aplicação
-
-A aplicação estará disponível em `http://localhost:9999`
-
-**Payment Processors disponíveis**:
-
-- Default: `http://localhost:8001`
-- Fallback: `http://localhost:8002`
-
 ## 🧪 Teste Local
 
 Siga
@@ -177,67 +168,6 @@ para validar seu backend localmente.
 | `PAYMENT_PROCESSOR_FALLBACK_URL` | URL do processador fallback | `http://payment-processor-fallback:8080` |
 | `MONGODB_URI`                    | URI do MongoDB              | `mongodb://mongodb:27017/rinha`          |
 | `KAFKA_BOOTSTRAP_SERVERS`        | Servidores Kafka            | `kafka:9092`                             |
-
-## 📈 Estratégias de Otimização
-
-### 1. Minimização de Latência
-
-- Connection pooling otimizado
-- Cache de health checks
-- Processamento assíncrono via Kafka
-
-### 2. Maximização de Lucro
-
-- Priorização do processador default (menor taxa)
-- Fallback rápido em caso de falha
-- Retry inteligente com backoff
-
-### 3. Garantia de Consistência
-
-- Transações ACID no MongoDB
-- Idempotência nos processamentos
-- Auditoria completa para evitar multas
-
-## 📁 Estrutura do Projeto
-
-```
-src/
-├── main/java/br/com/danielwisky/rinhadebackend/
-│   ├── domains/              # Entidades de domínio
-│   │   ├── enums/           # ProcessorType (DEFAULT, FALLBACK)
-│   │   └── Payment.java     # Entidade Payment
-│   ├── gateways/            # Interfaces e implementações
-│   │   ├── inputs/          # HTTP (PaymentController), Kafka
-│   │   └── outputs/         # MongoDB, HTTP (ProcessorClients), Kafka
-│   ├── usecases/            # ProcessPayment
-│   └── utils/               # Utilitários (JsonUtils)
-├── main/resources/          # Configurações (application.yml)
-└── test/                    # Testes com TestContainers
-```
-
-## 🏆 Submissão para Competição
-
-Para participar oficialmente:
-
-1. **Repositório público** com código fonte
-2. **Pull Request** no repositório oficial com:
-    - `docker-compose.yml` configurado
-    - `info.json` com tecnologias usadas
-    - `README.md` explicativo
-3. **Prazo**: 17/08/2025 às 23:59:59
-4. **Resultados**: 20/08/2025
-
-## 🤝 Contribuindo
-
-1. Faça um fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
 
 ## 👤 Autor
 
