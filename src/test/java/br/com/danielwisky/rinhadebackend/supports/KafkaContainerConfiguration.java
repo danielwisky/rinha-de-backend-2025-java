@@ -23,6 +23,6 @@ public class KafkaContainerConfiguration extends KafkaContainer {
   @Override
   public void start() {
     super.start();
-    System.setProperty("BOOTSTRAP_SERVERS", container.getBootstrapServers());
+    System.setProperty("KAFKA_BOOTSTRAP_SERVERS", container.getBootstrapServers());
   }
 }

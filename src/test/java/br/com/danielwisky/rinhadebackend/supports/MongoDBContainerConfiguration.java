@@ -2,8 +2,9 @@ package br.com.danielwisky.rinhadebackend.supports;
 
 public class MongoDBContainerConfiguration extends MongoDBContainer {
 
-  private static final String DOCKER_IMAGE = "4.0.10";
+  private static final String DOCKER_IMAGE = "latest";
   private static final String MONGO_DB_NAME = "rinhadebackend";
+
   private static MongoDBContainerConfiguration container;
 
   public MongoDBContainerConfiguration() {

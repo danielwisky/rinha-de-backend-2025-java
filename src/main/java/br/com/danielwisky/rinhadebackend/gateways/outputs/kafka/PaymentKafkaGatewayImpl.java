@@ -2,6 +2,7 @@ package br.com.danielwisky.rinhadebackend.gateways.outputs.kafka;
 
 import br.com.danielwisky.rinhadebackend.domains.Payment;
 import br.com.danielwisky.rinhadebackend.gateways.PaymentEventGateway;
+import br.com.danielwisky.rinhadebackend.gateways.outputs.kafka.resources.PaymentOutputResource;
 import br.com.danielwisky.rinhadebackend.utils.JsonUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,7 @@ public class PaymentKafkaGatewayImpl implements PaymentEventGateway {
 
   @Override
   public void process(final Payment payment) {
-    final var json = jsonUtils.toJson(payment);
-    kafkaTemplate.send(paymentProcessTopic, json);
+    final var paymentOutputResource = new PaymentOutputResource(payment);
+    kafkaTemplate.send(paymentProcessTopic, jsonUtils.toJson(paymentOutputResource));
   }
 }

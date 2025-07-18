@@ -4,8 +4,8 @@ spring:
       uri: ${MONGODB_URI}
   kafka:
     topics:
-      payment-process: TEST.PAYMENTS.PROCESS
-    bootstrap-servers: ${BOOTSTRAP_SERVERS}
+      payment-process: TEST-CONTAINER.PAYMENTS.PROCESS
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     listener:
       concurrency: 10
     consumer:

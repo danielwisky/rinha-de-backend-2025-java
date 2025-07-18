@@ -22,6 +22,7 @@ public class PaymentDocument {
   private Double amount;
   @Indexed
   private String processorType;
+  private String correlationId;
   @CreatedDate
   private LocalDateTime createdDate;
 
@@ -31,6 +32,7 @@ public class PaymentDocument {
     this.processorType = ofNullable(payment.getProcessorType())
         .map(Enum::name)
         .orElse(null);
+    this.correlationId = payment.getCorrelationId();
     this.createdDate = payment.getCreatedAt();
   }
 
@@ -41,6 +43,7 @@ public class PaymentDocument {
         .processorType(ofNullable(this.processorType)
             .map(ProcessorType::valueOf)
             .orElse(null))
+        .correlationId(this.correlationId)
         .createdAt(this.createdDate)
         .build();
   }

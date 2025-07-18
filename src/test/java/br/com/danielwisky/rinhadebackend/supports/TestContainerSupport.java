@@ -1,6 +1,8 @@
 package br.com.danielwisky.rinhadebackend.supports;
 
+import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepository;
 import org.mockserver.client.MockServerClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.ActiveProfiles;
@@ -21,7 +23,10 @@ public abstract class TestContainerSupport extends TestSupport {
     mongoContainer.start();
     mockServerContainer = MockServerContainerConfiguration.getInstance();
     mockServerContainer.start();
-    mockServerClient = new MockServerClient(
-        mockServerContainer.getHost(), mockServerContainer.getServerPort());
+    mockServerClient =
+        new MockServerClient(mockServerContainer.getHost(), mockServerContainer.getServerPort());
   }
+
+  @Autowired
+  protected PaymentMongoRepository paymentMongoRepository;
 }
