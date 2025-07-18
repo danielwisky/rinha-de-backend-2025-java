@@ -1,7 +1,7 @@
 package br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb;
 
 import br.com.danielwisky.rinhadebackend.domains.Payment;
-import br.com.danielwisky.rinhadebackend.gateways.outputs.PaymentDataGateway;
+import br.com.danielwisky.rinhadebackend.gateways.PaymentDataGateway;
 import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.documents.PaymentDocument;
 import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepository;
 import lombok.RequiredArgsConstructor;

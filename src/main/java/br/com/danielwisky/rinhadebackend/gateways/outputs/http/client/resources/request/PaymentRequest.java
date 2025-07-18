@@ -1,7 +1,5 @@
 package br.com.danielwisky.rinhadebackend.gateways.outputs.http.client.resources.request;
 
-import static java.time.LocalDateTime.now;
-
 import br.com.danielwisky.rinhadebackend.domains.Payment;
 import java.io.Serial;
 import java.io.Serializable;
@@ -27,6 +25,6 @@ public class PaymentRequest implements Serializable {
   public PaymentRequest(final Payment payment) {
     this.correlationId = payment.getCorrelationId();
     this.amount = payment.getAmount();
-    this.requestedAt = now();
+    this.requestedAt = payment.getCreatedAt();
   }
 }

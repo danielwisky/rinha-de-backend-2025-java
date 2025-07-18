@@ -15,4 +15,10 @@ public class PaymentResponse implements Serializable {
   private static final long serialVersionUID = 1L;
 
   private String message;
+  private boolean fallback;
+
+  public PaymentResponse(final PaymentFallbackResponse paymentFallbackResponse) {
+    this.message = paymentFallbackResponse.getMessage();
+    this.fallback = true;
+  }
 }

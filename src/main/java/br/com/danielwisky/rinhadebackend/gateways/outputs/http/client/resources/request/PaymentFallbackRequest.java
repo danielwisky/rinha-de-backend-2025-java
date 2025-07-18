@@ -1,5 +1,7 @@
 package br.com.danielwisky.rinhadebackend.gateways.outputs.http.client.resources.request;
 
+import static java.time.LocalDateTime.now;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -20,4 +22,10 @@ public class PaymentFallbackRequest implements Serializable {
   private String correlationId;
   private Double amount;
   private LocalDateTime requestedAt;
+
+  public PaymentFallbackRequest(final PaymentRequest paymentRequest) {
+    this.correlationId = paymentRequest.getCorrelationId();
+    this.amount = paymentRequest.getAmount();
+    this.requestedAt = now();
+  }
 }

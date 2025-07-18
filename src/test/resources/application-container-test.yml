@@ -1,15 +1,15 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/rinhadebackend
+      uri: ${MONGODB_URI}
   kafka:
     topics:
-      payment-process: RINHADEBACKEND.PAYMENTS.PROCESS
-    bootstrap-servers: localhost:9092
+      payment-process: TEST.PAYMENTS.PROCESS
+    bootstrap-servers: ${BOOTSTRAP_SERVERS}
     listener:
       concurrency: 10
     consumer:
-      group-id: rinhadebackend-consumer
+      group-id: test-consumer
       bootstrap-servers: ${spring.kafka.bootstrap-servers}
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
@@ -21,17 +21,9 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       properties:
         enable.idempotence: false
-  cloud:
-    openfeign:
-      client:
-        config:
-          default:
-            connectTimeout: 2000
-            readTimeout: 2000
-            loggerLevel: basic
 
 external-api:
   payment-processor:
-    url: http://payment-processor-default:8080
+    url: ${MOCKSERVER_URI}
   payment-processor-fallback:
-    url: http://payment-processor-fallback:8080
+    url: ${MOCKSERVER_URI}

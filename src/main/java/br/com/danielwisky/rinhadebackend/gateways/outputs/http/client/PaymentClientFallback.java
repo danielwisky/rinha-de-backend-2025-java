@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(
     name = "payment-processor-fallback",
     url = "${external-api.payment-processor-fallback.url}")
-public interface PaymentFallbackClient {
+public interface PaymentClientFallback {
 
   @PostMapping("/payments")
   PaymentFallbackResponse payment(@RequestBody PaymentFallbackRequest paymentFallbackRequest);
