@@ -6,7 +6,7 @@ import static org.mockito.Mockito.when;
 
 import br.com.danielwisky.rinhadebackend.domains.Payment;
 import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.documents.PaymentDocument;
-import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepository;
+import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepositoryImpl;
 import br.com.danielwisky.rinhadebackend.supports.TestSupport;
 import br.com.danielwisky.rinhadebackend.templates.domains.PaymentTemplate;
 import org.junit.jupiter.api.DisplayName;
@@ -21,7 +21,7 @@ class PaymentDataGatewayMongoImplTest extends TestSupport {
   private PaymentDataGatewayMongoImpl paymentDataGatewayMongo;
 
   @Mock
-  private PaymentMongoRepository paymentMongoRepository;
+  private PaymentMongoRepositoryImpl paymentMongoRepository;
 
   @Test
   @DisplayName("should save payment successfully")

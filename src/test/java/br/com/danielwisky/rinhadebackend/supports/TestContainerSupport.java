@@ -1,6 +1,6 @@
 package br.com.danielwisky.rinhadebackend.supports;
 
-import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepository;
+import br.com.danielwisky.rinhadebackend.gateways.outputs.mongodb.repositories.PaymentMongoRepositoryImpl;
 import org.mockserver.client.MockServerClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,5 +28,5 @@ public abstract class TestContainerSupport extends TestSupport {
   }
 
   @Autowired
-  protected PaymentMongoRepository paymentMongoRepository;
+  protected PaymentMongoRepositoryImpl paymentMongoRepository;
 }

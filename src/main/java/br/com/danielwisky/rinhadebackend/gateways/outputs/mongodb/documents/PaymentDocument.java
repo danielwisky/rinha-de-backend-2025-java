@@ -22,6 +22,7 @@ public class PaymentDocument {
   private Double amount;
   @Indexed
   private String processorType;
+  @Indexed(unique = true)
   private String correlationId;
   @CreatedDate
   private LocalDateTime createdDate;

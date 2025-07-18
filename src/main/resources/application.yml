@@ -12,6 +12,8 @@ spring:
     default-property-inclusion: non_null
     deserialization:
       FAIL_ON_UNKNOWN_PROPERTIES: false
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
     mapper:
       ACCEPT_CASE_INSENSITIVE_PROPERTIES: true
     parser:

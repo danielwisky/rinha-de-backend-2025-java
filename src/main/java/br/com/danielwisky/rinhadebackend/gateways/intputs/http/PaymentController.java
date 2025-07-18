@@ -4,6 +4,7 @@ import static org.springframework.http.HttpStatus.ACCEPTED;
 
 import br.com.danielwisky.rinhadebackend.gateways.PaymentEventGateway;
 import br.com.danielwisky.rinhadebackend.gateways.intputs.http.resources.request.PaymentRequest;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class PaymentController {
 
   @PostMapping
   @ResponseStatus(ACCEPTED)
-  public ResponseEntity<Void> payment(@RequestBody final PaymentRequest paymentRequest) {
+  public ResponseEntity<Void> payment(@RequestBody @Valid final PaymentRequest paymentRequest) {
     log.debug("payment request: {}", paymentRequest);
     paymentEventGateway.process(paymentRequest.toDomain());
     return ResponseEntity.accepted().build();
